@@ -16,3 +16,18 @@ Workflows can be triggered by three groups of events:
 1. Scheduled events
 2. Manual events
 3. Webhook events
+
+### 2.1 # Scheduled events
+Scheduled events triggers on a specified time. It uses **POSIX** cron syntax. 
+
+*The minimum time can be set to 5 minutes.*
+
+```yml
+on:
+    schedule:
+        - cron: '*/5 * * * *'
+```
+For **POSIX** cron syntax help [visit](https://crontab.guru).
+
+### 2.2 # Manual events
+### 2.3 # Webhook events
