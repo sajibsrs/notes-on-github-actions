@@ -102,3 +102,12 @@ on:
     types: [opened]
 ```
 This one will only trigger on if the issue type is opened. [Learn more about GitHub webhooks](https://docs.github.com/en/developers/webhooks-and-events/webhooks/creating-webhooks).
+
+## 3 # Jobs
+A job is a set of steps that run on the same runner. Multiple jobs within the same workflow can run sequentially, although by default they runs in parallel.
+
+```yml
+jobs:
+  tests_manual_workflow:
+    runs-on: ubuntu-latest
+```
