@@ -23,8 +23,8 @@ Scheduled events triggers on a specified time. It uses **POSIX** cron syntax.
 
 ```yml
 on:
-    schedule:
-        - cron: '*/5 * * * *'
+  schedule:
+    - cron: '*/5 * * * *'
 ```
 *Note: For **POSIX** cron syntax help visit [here](https://crontab.guru).*
 
@@ -42,15 +42,15 @@ Following example requires input from the user and prints the user's input to th
 
 ```yml
 on:
-    workflow_dispatch:
-        inputs:
-            username:
-                description: 'Your user name'
-                required: true
-            reason:
-                description: 'Why this workflow is being run manually?'
-                required: true
-                default: 'On testing purpose'
+  workflow_dispatch:
+    inputs:
+      username:
+        description: 'Your user name'
+        required: true
+      reason:
+        description: 'Why this workflow is being run manually?'
+        required: true
+        default: 'On testing purpose'
 ```
 *Note: Workflow must be on the default branch to trigger `workflow_dispatch`.*
 
