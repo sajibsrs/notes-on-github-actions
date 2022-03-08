@@ -111,3 +111,13 @@ jobs:
   tests_manual_workflow:
     runs-on: ubuntu-latest
 ```
+
+## 4 # Steps
+Steps are individual tasks that runs commands, such as a shell command or an action, in a job within a workflow. Steps can share data among themselves as they runs on the same runner.
+
+```yml
+steps:
+  - run: >
+    echo "User ${{ github.event.inputs.username }} ran a workflow."
+    echo "Reason ${{ github.event.inputs.reason }}."
+```
