@@ -10,6 +10,7 @@ GitHub actions is an implementation of a cohesive automated **continuous integra
 
 ## 2 # Events
 GitHub actions are event-driven. You can define what happens when a specific event occurs. Event, works as an input in GitHub Action.
+[More about GitHub events](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#available-events).
 
 Workflows can be triggered by three groups of events:
 1. Scheduled events
