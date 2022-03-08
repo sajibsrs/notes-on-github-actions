@@ -13,9 +13,9 @@ GitHub actions are event-driven. You can define what happens when a specific eve
 [More about GitHub events](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#available-events).
 
 Workflows can be triggered by three groups of events:
-1. Scheduled events
-2. Manual events
-3. Webhook events
+1. [Scheduled events](#21--scheduled-events)
+2. [Manual events](#22--manual-events)
+3. [Webhook events](#23--webhook-events)
 
 ### 2.1 # Scheduled events
 Scheduled events triggers on a specified time. It uses **POSIX** cron syntax. 
