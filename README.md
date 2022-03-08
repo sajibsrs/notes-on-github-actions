@@ -53,5 +53,40 @@ on:
         default: 'On testing purpose'
 ```
 
+#### 2.2.2 # repository_dispatch
+*Note: This event will only trigger a workflow run if the workflow file is on the default branch.*
+
+You can use the GitHub API to trigger a webhook event called *repository_dispatch* when you want to trigger a workflow for activity that happens outside of GitHub. For more information, see [Create a repository dispatch event](https://docs.github.com/en/rest/reference/repos#create-a-repository-dispatch-event).
+
+Any data that you send through the client_payload parameter will be available in the github.event context in your workflow. 
+
+For example, if you send this request body when you create a repository dispatch event:
+
+```json
+{
+  "event_type": "test_result",
+  "client_payload": {
+    "passed": false,
+    "message": "Error: timeout"
+  }
+}
+```
+
+then you can access the payload in a workflow like this:
+
+```yml
+on:
+  repository_dispatch:
+    types: [test_result]
+
+jobs:
+  run_if_failure:
+    if: ${{ !github.event.client_payload.passed }}
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          MESSAGE: ${{ github.event.client_payload.message }}
+        run: echo $MESSAGE
+```
 
 ### 2.3 # Webhook events
