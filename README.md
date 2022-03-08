@@ -122,3 +122,7 @@ steps:
     echo "User ${{ github.event.inputs.username }} ran a workflow."
     echo "Reason ${{ github.event.inputs.reason }}."
 ```
+
+
+## License
+[MIT](LICENSE)
