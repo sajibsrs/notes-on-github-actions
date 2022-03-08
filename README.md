@@ -35,4 +35,23 @@ There are two different types of manual events:
 1. workflow_dispatch
 2. repository_dispatch
 
+#### 2.2.1 workflow_dispatch
+The workflow_dispatch event can be used to trigger specific workflows within a repository manually. It allows defining *custom, default, and required input properties* within the workflow file. These inputs can be accessed using `github.event.inputs` context.
+
+Following example requires input from the user and prints the user's input to the logs:
+
+```yml
+on:
+    workflow_dispatch:
+        inputs:
+            username:
+                description: 'Your user name'
+                required: true
+            reason:
+                description: 'Why this workflow is being run manually?'
+                required: true
+                default: 'On testing purpose'
+```
+*Note: Workflow must be on the default branch to trigger `workflow_dispatch`.*
+
 ### 2.3 # Webhook events
