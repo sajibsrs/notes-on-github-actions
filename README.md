@@ -26,7 +26,7 @@ on:
   schedule:
     - cron: '*/5 * * * *'
 ```
-*Note: For **POSIX** cron syntax help visit [here](https://crontab.guru).*
+*Note: For **POSIX** cron syntax help visit [crontab.guru](https://crontab.guru).*
 
 ### 2.2 # Manual events
 Although the most popular and convenient way to use GitHub Actions is to run automated workflow. It's also possible to run those workflows manually.
@@ -35,8 +35,8 @@ There are two different types of manual events:
 1. workflow_dispatch
 2. repository_dispatch
 
-#### 2.2.1 workflow_dispatch
-The workflow_dispatch event can be used to trigger specific workflows within a repository manually. It allows defining *custom, default, and required input properties* within the workflow file. These inputs can be accessed using `github.event.inputs` context.
+#### 2.2.1 # workflow_dispatch
+To manually trigger a workflow, use the workflow_dispatch event. You can manually trigger a workflow run using the GitHub API, GitHub CLI, or GitHub browser interface. For more information see [Manually running workflow](https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow).
 
 Following example requires input from the user and prints the user's input to the logs:
 
@@ -52,6 +52,6 @@ on:
         required: true
         default: 'On testing purpose'
 ```
-*Note: Workflow must be on the default branch to trigger `workflow_dispatch`.*
+
 
 ### 2.3 # Webhook events
