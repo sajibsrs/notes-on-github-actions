@@ -90,3 +90,15 @@ jobs:
 ```
 
 ### 2.3 # Webhook events
+These events triggers on workflow when GitHub webhook event. Such as issue and pull request, update and deletion, deployment etc.
+
+Each event corresponds to a certain set of actions that can happen to your organization and/or repository. For example, if you subscribe to the issues event you'll receive detailed payloads every time an issue is opened, closed, labeled, etc.
+
+Although the *issues* event has over a dozen types that could trigger a workflow, this can be narrowed down by setting *type*.
+
+```yml
+on:
+  issues:
+    types: [opened]
+```
+This one will only trigger on if the issue type is opened.
