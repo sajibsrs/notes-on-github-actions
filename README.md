@@ -12,7 +12,6 @@ GitHub actions is an implementation of a cohesive automated **continuous integra
 GitHub actions are event-driven. You can define what happens when a specific event occurs. Event, works as an input in GitHub Action.
 
 Workflows can be triggered by three groups of events:
-
 1. Scheduled events
 2. Manual events
 3. Webhook events
@@ -27,7 +26,13 @@ on:
     schedule:
         - cron: '*/5 * * * *'
 ```
-For **POSIX** cron syntax help [visit](https://crontab.guru).
+*Note: For **POSIX** cron syntax help visit [here](https://crontab.guru).*
 
 ### 2.2 # Manual events
+Although the most popular and convenient way to use GitHub Actions is to run automated workflow. It's also possible to run those workflows manually.
+
+There are two different types of manual events:
+1. workflow_dispatch
+2. repository_dispatch
+
 ### 2.3 # Webhook events
