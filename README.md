@@ -37,7 +37,7 @@ There are two different types of manual events:
 2. repository_dispatch
 
 #### 2.2.1 # workflow_dispatch
-To manually trigger a workflow, use the workflow_dispatch event. You can manually trigger a workflow run using the GitHub API, GitHub CLI, or GitHub browser interface. For more information see [Manually running workflow](https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow).
+To manually trigger a workflow, use the `workflow_dispatch` event. You can manually trigger a workflow run using the GitHub API, GitHub CLI, or GitHub browser interface. For more information see [Manually running workflow](https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow).
 
 Following example requires input from the user and prints the user's input to the logs:
 
