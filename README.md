@@ -37,7 +37,7 @@ There are two different types of manual events:
 2. repository_dispatch
 
 #### 2.2.1 # workflow_dispatch
-To manually trigger a workflow, use the `workflow_dispatch` event. You can manually trigger a workflow run using the GitHub API, GitHub CLI, or GitHub browser interface. For more information see [Manually running workflow](https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow).
+To manually trigger a workflow, use the **workflow_dispatch** event. You can manually trigger a workflow run using the GitHub API, GitHub CLI, or GitHub browser interface. For more information see [Manually running workflow](https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow).
 
 Following example requires input from the user and prints the user's input to the logs:
 
@@ -57,7 +57,7 @@ on:
 #### 2.2.2 # repository_dispatch
 *Note: This event will only trigger a workflow run if the workflow file is on the default branch.*
 
-You can use the GitHub API to trigger a webhook event called *repository_dispatch* when you want to trigger a workflow for activity that happens outside of GitHub. For more information, see [Create a repository dispatch event](https://docs.github.com/en/rest/reference/repos#create-a-repository-dispatch-event).
+You can use the GitHub API to trigger a webhook event called **repository_dispatch** when you want to trigger a workflow for activity that happens outside of GitHub. For more information, see [Create a repository dispatch event](https://docs.github.com/en/rest/reference/repos#create-a-repository-dispatch-event).
 
 Any data that you send through the client_payload parameter will be available in the github.event context in your workflow. 
 
@@ -95,7 +95,7 @@ These events triggers on workflow when GitHub webhook event. Such as issue and p
 
 Each event corresponds to a certain set of actions that can happen to your organization and/or repository. For example, if you subscribe to the issues event you'll receive detailed payloads every time an issue is opened, closed, labeled, etc.
 
-Although the *issues* event has over a dozen types that could trigger a workflow, this can be narrowed down by setting *type*.
+Although the **issues** event has over a dozen types that could trigger a workflow, this can be narrowed down by setting **type**.
 
 ```yml
 on:
