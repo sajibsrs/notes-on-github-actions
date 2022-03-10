@@ -132,7 +132,21 @@ jobs:
     steps:
     - uses: actions/stale@v3
 ```
+## 6 # Runners
+A runner is a server application, often installed on a virtual machine or docker container. It runs a job from GitHub Actions workflow. A runner has one job at a time and provides feedback to GitHub. In a runner, steps executes in the same instance of the virtual machine (**VM**). This allows the actions within that job to share information using the filesystem.
 
+There are two types of runners:
+1. GitHub-hosted runners
+2. Self-hosted runners
+
+*Note: GitHub supports Windows, macOS, and Linux operating systems for runners.*
+
+```yml
+jobs:
+  build:
+    runs-on: macos-latest
+```
+GitHub hosted runner is managed by GitHub. On the other hand, self-hosted runners are created and managed by users.
 
 ## License
 [MIT](LICENSE)
