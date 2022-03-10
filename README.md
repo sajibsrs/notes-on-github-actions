@@ -122,6 +122,15 @@ steps:
     echo "User ${{ github.event.inputs.username }} ran a workflow."
     echo "Reason ${{ github.event.inputs.reason }}."
 ```
+## 4 # Steps
+Steps are individual tasks that can run commands, such as sell commands or action. Steps can share data among themselves, because each step in a given job runs on the same runner.
+
+```yml
+steps:
+  - run: >
+    echo "User ${{ github.event.inputs.username }} ran a workflow manually."
+    echo "Reason ${{ github.event.inputs.reason }}."
+```
 
 
 ## License
