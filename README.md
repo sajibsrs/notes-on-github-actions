@@ -122,14 +122,15 @@ steps:
     echo "User ${{ github.event.inputs.username }} ran a workflow."
     echo "Reason ${{ github.event.inputs.reason }}."
 ```
-## 4 # Steps
-Steps are individual tasks that can run commands, such as sell commands or action. Steps can share data among themselves, because each step in a given job runs on the same runner.
+## 5 # Actions
+Actions are standalone commands. They combined into steps to create **job**. User can create their own actions and share with the community. User can also use actions that have already been created by the community.
 
 ```yml
-steps:
-  - run: >
-    echo "User ${{ github.event.inputs.username }} ran a workflow manually."
-    echo "Reason ${{ github.event.inputs.reason }}."
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/stale@v3
 ```
 
 
