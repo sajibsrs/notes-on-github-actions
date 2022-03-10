@@ -148,5 +148,7 @@ jobs:
 ```
 GitHub hosted runner is managed by GitHub. On the other hand, self-hosted runners are created and managed by users.
 
+*Note: There are three types of actions: **Docker container actions, JavaScript actions, and composite run steps actions**.*
+
 ## License
 [MIT](LICENSE)
