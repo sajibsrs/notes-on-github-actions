@@ -52,6 +52,11 @@ steps:
 ## 5 # Actions
 Actions are standalone commands. They combined into steps to create **job**. User can create their own actions and share with the community. User can also use actions that have already been created by the community.
 
+There are **three** different types of actions:
+1. Docker container
+2. Javascript
+3. Composite
+
 ```yml
 jobs:
   stale:
