@@ -1,12 +1,24 @@
 # Core Concepts of GitHub Actions
 GitHub actions is an implementation of a cohesive automated **continuous integration, continuous delivery and continuous deployment (CI/CD)** workflow.
 
-## 1 # Components
+## # Contents
+* [Workflows](#1--workflows)
 * [Events](#2--events)
 * [Jobs](#3--jobs)
 * [Steps](#4--steps)
 * [Actions](#5--actions)
 * [Runners](#6--runners)
+
+## 1 # Workflows
+A workflow is a configurable automated process that that runs single or multiple jobs. Workflows are defined in a YAML file. GitHub checks the repository for workflow configuration file and runs when triggered by an event in the repository. Workflows can also be triggered manually or on a predefined schedule.
+
+One repository can have multiple workflows for different operations. As, a repository can 
+have one workflow to build and test pull requests and another to deploy application every time a release is created.
+
+*Note: Workflows can be reused rather than duplicating existing one.*
+
+* [Reusing workflow](https://docs.github.com/en/actions/learn-github-actions/reusing-workflows)
+* [Learn about workflow](https://docs.github.com/en/actions/using-workflows)
 
 ## 2 # Events
 GitHub actions are event-driven. You can define what happens when a specific event occurs. Event, works as an input in GitHub Action.
