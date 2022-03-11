@@ -1,19 +1,21 @@
 # Core Concepts of GitHub Actions
-GitHub actions is an implementation of a cohesive automated **continuous integration, continuous delivery and continuous deployment (CI/CD)** workflow.
+GitHub actions is an implementation of a cohesive automated **continuous integration, continuous delivery (CI/CD)** workflow.
 
 ## # Contents
-* [Workflows](#1--workflows)
-* [Events](#2--events)
-* [Jobs](#3--jobs)
-* [Steps](#4--steps)
-* [Actions](#5--actions)
-* [Runners](#6--runners)
+- [Core Concepts of GitHub Actions](#core-concepts-of-github-actions)
+  - [# Contents](#-contents)
+  - [1 # Workflows](#1--workflows)
+  - [2 # Events](#2--events)
+  - [3 # Jobs](#3--jobs)
+  - [4 # Steps](#4--steps)
+  - [5 # Actions](#5--actions)
+  - [6 # Runners](#6--runners)
+  - [License](#license)
 
 ## 1 # Workflows
 A workflow is a configurable automated process that that runs a single or multiple jobs. Workflows are defined in a **YAML** file. GitHub checks the repository for workflow configuration file and runs when triggered by an event in the repository. Workflows can also be triggered manually or on a predefined schedule.
 
-One repository can have multiple workflows for different operations. Such as, a repository can 
-have one workflow to build and test pull requests and another to deploy application every time a release is created.
+One repository can have multiple workflows for different operations. Such as, a repository can have one workflow to build and test pull requests and another to deploy application every time a release is created.
 
 *Note: Workflows can be reused rather than duplicating existing one.*
 
@@ -23,100 +25,13 @@ have one workflow to build and test pull requests and another to deploy applicat
 *Note: *[ext]* in a link denotes, an external link that leads to other location outside of this document.*
 
 ## 2 # Events
-GitHub actions are event-driven. You can define what happens when a specific event occurs. Event, works as an input in GitHub Action.
-[More about GitHub events *[ext]*](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#available-events)
+An event is a specific activity in a repository that triggers a workflow run. For example, activity can originate from GitHub on creating pull request, opening issue, push, or committing to a repository. Workflow run can be triggered in **three** ways:
 
-Workflows can be triggered by three groups of events:
-1. [Scheduled events](#21--scheduled-events)
-2. [Manual events](#22--manual-events)
-3. [Webhook events](#23--webhook-events)
+1. Schedule
+2. Posting to a REST API
+3. Manually
 
-### 2.1 # Scheduled events
-Scheduled events triggers on a specified time. It uses **POSIX** cron syntax. 
-
-*The minimum time can be set to 5 minutes.*
-
-```yml
-on:
-  schedule:
-    - cron: '*/5 * * * *'
-```
-*Note: For **POSIX** cron syntax help visit [crontab.guru *[ext]*](https://crontab.guru)*.
-
-### 2.2 # Manual events
-Although the most popular and convenient way to use GitHub Actions is to run automated workflow. It's also possible to run those workflows manually.
-
-There are two different types of manual events:
-1. workflow_dispatch
-2. repository_dispatch
-
-#### 2.2.1 # workflow_dispatch
-To manually trigger a workflow, use the **workflow_dispatch** event. You can manually trigger a workflow run using the GitHub API, GitHub CLI, or GitHub browser interface. For more information see [Manually running workflow *[ext]*](https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow).
-
-Following example requires input from the user and prints the user's input to the logs:
-
-```yml
-on:
-  workflow_dispatch:
-    inputs:
-      username:
-        description: 'Your user name'
-        required: true
-      reason:
-        description: 'Why this workflow is being run manually?'
-        required: true
-        default: 'On testing purpose'
-```
-
-#### 2.2.2 # repository_dispatch
-*Note: This event will only trigger a workflow run if the workflow file is on the default branch.*
-
-You can use the GitHub API to trigger a webhook event called **repository_dispatch** when you want to trigger a workflow for activity that happens outside of GitHub. For more information, see [Create a repository dispatch event *[ext]*](https://docs.github.com/en/rest/reference/repos#create-a-repository-dispatch-event).
-
-Any data that you send through the client_payload parameter will be available in the github.event context in your workflow. 
-
-For example, if you send this request body when you create a repository dispatch event:
-
-```json
-{
-  "event_type": "test_result",
-  "client_payload": {
-    "passed": false,
-    "message": "Error: timeout"
-  }
-}
-```
-
-then you can access the payload in a workflow like this:
-
-```yml
-on:
-  repository_dispatch:
-    types: [test_result]
-
-jobs:
-  run_if_failure:
-    if: ${{ !github.event.client_payload.passed }}
-    runs-on: ubuntu-latest
-    steps:
-      - env:
-          MESSAGE: ${{ github.event.client_payload.message }}
-        run: echo $MESSAGE
-```
-
-### 2.3 # Webhook events
-These events triggers on workflow when GitHub webhook event. Such as issue and pull request, update and deletion, deployment etc.
-
-Each event corresponds to a certain set of actions that can happen to your organization and/or repository. For example, if you subscribe to the issues event you'll receive detailed payloads every time an issue is opened, closed, labeled, etc.
-
-Although the **issues** event has over a dozen types that could trigger a workflow, this can be narrowed down by setting **type**.
-
-```yml
-on:
-  issues:
-    types: [opened]
-```
-This one will only trigger on if the issue type is opened. [Learn more about GitHub webhooks *[ext]*](https://docs.github.com/en/developers/webhooks-and-events/webhooks/creating-webhooks).
+[GitHub events *[ext]*](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows)
 
 ## 3 # Jobs
 A job is a set of steps that run on the same runner. Multiple jobs within the same workflow can run sequentially, although by default they runs in parallel.
