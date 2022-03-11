@@ -17,12 +17,14 @@ have one workflow to build and test pull requests and another to deploy applicat
 
 *Note: Workflows can be reused rather than duplicating existing one.*
 
-* [Reusing workflow](https://docs.github.com/en/actions/learn-github-actions/reusing-workflows)
-* [Learn about workflow](https://docs.github.com/en/actions/using-workflows)
+* [Reusing workflow *[ext]*](https://docs.github.com/en/actions/learn-github-actions/reusing-workflows)
+* [Learn about workflow *[ext]*](https://docs.github.com/en/actions/using-workflows)
+
+*Note: *[ext]* in a link denotes, an external link that leads to other location outside of this document.*
 
 ## 2 # Events
 GitHub actions are event-driven. You can define what happens when a specific event occurs. Event, works as an input in GitHub Action.
-[More about GitHub events](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#available-events).
+[More about GitHub events *[ext]*](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#available-events)
 
 Workflows can be triggered by three groups of events:
 1. [Scheduled events](#21--scheduled-events)
@@ -39,7 +41,7 @@ on:
   schedule:
     - cron: '*/5 * * * *'
 ```
-*Note: For **POSIX** cron syntax help visit [crontab.guru](https://crontab.guru).*
+*Note: For **POSIX** cron syntax help visit [crontab.guru *[ext]*](https://crontab.guru)*.
 
 ### 2.2 # Manual events
 Although the most popular and convenient way to use GitHub Actions is to run automated workflow. It's also possible to run those workflows manually.
@@ -49,7 +51,7 @@ There are two different types of manual events:
 2. repository_dispatch
 
 #### 2.2.1 # workflow_dispatch
-To manually trigger a workflow, use the **workflow_dispatch** event. You can manually trigger a workflow run using the GitHub API, GitHub CLI, or GitHub browser interface. For more information see [Manually running workflow](https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow).
+To manually trigger a workflow, use the **workflow_dispatch** event. You can manually trigger a workflow run using the GitHub API, GitHub CLI, or GitHub browser interface. For more information see [Manually running workflow *[ext]*](https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow).
 
 Following example requires input from the user and prints the user's input to the logs:
 
@@ -69,7 +71,7 @@ on:
 #### 2.2.2 # repository_dispatch
 *Note: This event will only trigger a workflow run if the workflow file is on the default branch.*
 
-You can use the GitHub API to trigger a webhook event called **repository_dispatch** when you want to trigger a workflow for activity that happens outside of GitHub. For more information, see [Create a repository dispatch event](https://docs.github.com/en/rest/reference/repos#create-a-repository-dispatch-event).
+You can use the GitHub API to trigger a webhook event called **repository_dispatch** when you want to trigger a workflow for activity that happens outside of GitHub. For more information, see [Create a repository dispatch event *[ext]*](https://docs.github.com/en/rest/reference/repos#create-a-repository-dispatch-event).
 
 Any data that you send through the client_payload parameter will be available in the github.event context in your workflow. 
 
@@ -114,7 +116,7 @@ on:
   issues:
     types: [opened]
 ```
-This one will only trigger on if the issue type is opened. [Learn more about GitHub webhooks](https://docs.github.com/en/developers/webhooks-and-events/webhooks/creating-webhooks).
+This one will only trigger on if the issue type is opened. [Learn more about GitHub webhooks *[ext]*](https://docs.github.com/en/developers/webhooks-and-events/webhooks/creating-webhooks).
 
 ## 3 # Jobs
 A job is a set of steps that run on the same runner. Multiple jobs within the same workflow can run sequentially, although by default they runs in parallel.
