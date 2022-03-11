@@ -1,14 +1,14 @@
 name: GitHub Action Push
-on: [push]
+on: [push] # Event
 jobs:
-  GitHub-Action-Push:
-    runs-on: ubuntu-latest
+  GitHub-Action-Push: # Label for job
+    runs-on: ubuntu-latest # Runner / Platform / OS
     steps:
       - run: echo "🎉 This job automatically triggered by ${{ github.event_name }} event."
       - run: echo "🐧 This job is running on ${{ runner.os }} server."
       - run: echo "🫒 The name of the branch is ${{ github.ref }}."
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2 # Uses predefined action
       - run: echo "🪴 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "💀 The workflow is now ready to test the code on the runner."
       - name: List files in the repository
