@@ -10,9 +10,9 @@ GitHub actions is an implementation of a cohesive automated **continuous integra
 * [Runners](#6--runners)
 
 ## 1 # Workflows
-A workflow is a configurable automated process that that runs single or multiple jobs. Workflows are defined in a YAML file. GitHub checks the repository for workflow configuration file and runs when triggered by an event in the repository. Workflows can also be triggered manually or on a predefined schedule.
+A workflow is a configurable automated process that that runs a single or multiple jobs. Workflows are defined in a **YAML** file. GitHub checks the repository for workflow configuration file and runs when triggered by an event in the repository. Workflows can also be triggered manually or on a predefined schedule.
 
-One repository can have multiple workflows for different operations. As, a repository can 
+One repository can have multiple workflows for different operations. Such as, a repository can 
 have one workflow to build and test pull requests and another to deploy application every time a release is created.
 
 *Note: Workflows can be reused rather than duplicating existing one.*
