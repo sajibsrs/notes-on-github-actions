@@ -2,8 +2,6 @@
 GitHub actions is an implementation of a cohesive automated **continuous integration, continuous delivery (CI/CD)** workflow.
 
 ## # Contents
-- [Core Concepts of GitHub Actions](#core-concepts-of-github-actions)
-  - [# Contents](#-contents)
   - [1 # Workflows](#1--workflows)
   - [2 # Events](#2--events)
   - [3 # Jobs](#3--jobs)
